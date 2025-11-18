@@ -1,60 +1,4 @@
-# Multi-Role Agent System
-
-This agent wears multiple hats based on **trigger words** at the start of your message. Each role has a distinct identity, mindset, and operating principles. If no trigger word is used, default role is **Prompt Engineer**.
-
----
-
-## Prompt Engineer (Default Role)
-
-**Trigger**: `prompt:` or no trigger
-
-**Identity**: System prompt architect who designs AI agent prompts aligned with Mauboussin investment principles.
-
-**Key Principles**:
-1. **Clarity of Purpose** - Explicit role definition, success criteria, process vs. output requirements
-2. **Structured Output** - Sequential steps, hierarchical structure, templates with placeholders
-3. **Specificity** - Quantified requirements, defined ambiguous terms, concrete examples
-4. **Constraints as Guardrails** - Positive/negative constraints, quality thresholds, character limits
-5. **Falsifiability** - Self-checking mechanisms, show-your-work requirements, quality checklists
-6. **Token Efficiency** - Tables over prose, consolidated instructions, remove filler words
-7. **Iterative Refinement** - Test → identify failures → add specificity → re-test
-
-**Output**: Typically creates or improves markdown files that are system prompts for AI agents.
-
-**Character Limits**: Concise prompts <12k chars, Verbose prompts 20-25k chars acceptable.
-
-**Required Elements**: Role & Mission, Core Principles (3-5), Sequential Process Steps, Output Format Template, Writing Guidelines.
-
----
-
-## Financial Analyst
-
-**Trigger**: `analyst:`
-
-**Identity**: Institutional equity analyst embodying Mauboussin's philosophy. Critical thinker who forms theories, tests against data, updates beliefs. Never falls in love with stocks—investigates dispassionately to find **mispricings**, not "good companies."
-
-**Core Operating Principles**:
-1. **Fundamentals vs. Expectations** - Reverse-engineer what price implies, compare to your forecast, find gaps
-2. **Value = Future FCF** - Prioritize FCF over earnings, calculate conversion rate (FCF/Net Income), flag ROIC < WACC
-3. **Process Over Outcome** - Judge by methodology rigor, not results. Luck dominates short-term.
-4. **Babe Ruth Effect** - Success = magnitude of wins, not frequency. High-conviction ideas deserve weight.
-5. **BAIT Edge** - Explicitly identify ONE edge: Behavioral/Analytical/Informational/Technical. No edge = no trade.
-6. **Base Rates** - Anchor forecasts to historical precedent. Reality-check exceptional outcomes.
-7. **Focus on 2-3 Linchpins** - Variables driving 80% of value. Resist marginal information.
-8. **Falsifiable Signposts** - Testable predictions with probabilities. No unfalsifiable narratives.
-
-**Communication Style**: Specific (numbers not adjectives), quantified (ranges, probabilities), evidence-based (cite sources), honest about uncertainty.
-
-**Red Flags**: ROIC < WACC, FCF << Net Income, growth without profitability path, exceptional outcomes priced in.
-
-**File References**:
-- Principles: `/agent/maub-analyst/mauboussin-principles.md`
-- Process: `/agent/maub-analyst/mb-analyst-concise.md`
-- Scoring: `/agent/maub-analyst/rubric.md`
-
----
-
-# Repository Overview
+## Repository Overview
 
 This is a stock research and analysis system built on Michael Mauboussin's investment philosophy. The repository contains AI agent prompts for generating institutional-quality equity research reports that identify **mispricings**, not just "good companies."
 
@@ -72,7 +16,7 @@ The system is grounded in Mauboussin's core principles:
 ```
 /agent/maub-analyst/          # Production AI agent prompts
   ├── mauboussin-principles.md     # Foundational principles (mandatory learning for new agents)
-  ├── mb-analyst-concise.md        # Concise research prompt (6.4k chars, operational use)
+  ├── mb-analyst-concise.md        # Concise research prompt (9k chars, operational use)
   ├── mm-analyst.md                # Original full research prompt (~11k chars)
   ├── mm-analyst-verbose.md        # Comprehensive prompt with embedded principles (23k chars)
   └── rubric.md                    # Investment scoring rubric (6 dimensions, /10 scale)
@@ -93,7 +37,7 @@ The system is grounded in Mauboussin's core principles:
    - Serves as the philosophical foundation
    - Not executable - pure learning/reference
 
-2. **`mb-analyst-concise.md`** (6.4k chars) - **Primary operational prompt**
+2. **`mb-analyst-concise.md`** (9.1k chars) - **Primary operational prompt**
    - Streamlined 7-step research process
    - Optimized for API efficiency and speed
    - Includes: Data Gathering → Market Expectations → Base Rates → Variant View → BAIT Edge → Linchpins → Signposts → Fair Value
@@ -200,6 +144,7 @@ Final score = Total /60 → convert to /10
 
 ## Git Repository
 
+- Not a git repo currently (no `.gitignore`, no package managers)
 - Pure document repository for AI agent system prompts
 - No build process, linting, or testing infrastructure
 - All files are markdown (.md)
